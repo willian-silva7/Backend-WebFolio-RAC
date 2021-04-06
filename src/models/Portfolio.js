@@ -10,6 +10,7 @@ const PortfolioSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  institution: String,
   educator_name: [{ type: String }],
   permissions: [{ type: String }],
   created_at: { type: Date, default: Date.now },

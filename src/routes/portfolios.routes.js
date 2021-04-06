@@ -46,6 +46,7 @@ portfoliosRouter.put(
       nameChildren: Joi.string().required(),
       age: Joi.number().required(),
       classRoom: Joi.string().required(),
+      institution: Joi.string(),
     },
   }),
   PortfolioController.update,

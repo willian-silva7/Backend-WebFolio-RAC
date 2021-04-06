@@ -8,6 +8,7 @@ const UserSchema = new mongoose.Schema({
   avatar: { type: String, default: null },
   password: { type: String, required: true },
   institution: String,
+  isParent: Boolean,
   role: { type: String, enum: ['admin', 'teacher', 'parent', 'child', 'manager', 'guest'], default: 'guest' },
   created_at: { type: Date, default: Date.now },
   updated_at: { type: Date, default: Date.now },

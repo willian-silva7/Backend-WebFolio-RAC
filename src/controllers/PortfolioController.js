@@ -64,7 +64,10 @@ module.exports = {
   },
 
   async update(request, response) {
-    const { nameChildren, age, classRoom } = request.body;
+    const {
+      nameChildren, age, classRoom, institution,
+    } = request.body;
+
     const { portfolio_id } = request.params;
     const { id } = request.user;
 
@@ -75,6 +78,7 @@ module.exports = {
       portfolio_id,
       age,
       classRoom,
+      institution,
       educator_id: id,
     });
 

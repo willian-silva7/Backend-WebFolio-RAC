@@ -19,29 +19,6 @@ To start the application use the command:
 yarn dev:server
 ```
 
-### Routes
-
-Post: /players:
-Send player name
-
-Get: /players:
-Recover all created players
-
-Post: /teamname
-Send team name
-
-Get: /teamname
-Recover all created teams names
-
-Post: /teams
-Create teams and reserve list with all players registered in the system
-
-Get: /teams
-Recover all created teams
-
-Get: /teams/reservelist
-Recover reserve list players
-
 ### Tools
 
 Tools used in the application:
