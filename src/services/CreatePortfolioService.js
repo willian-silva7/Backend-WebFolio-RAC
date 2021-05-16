@@ -29,7 +29,7 @@ class CreatePortifolioService {
       educator: user,
       institution: user.institution,
       educator_name: user.name,
-      permissions: user.email,
+      // managers: user,
     });
 
     if (!portfolio) {

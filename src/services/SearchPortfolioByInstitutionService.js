@@ -10,8 +10,6 @@ class SearchPortfolioByInstitutionService {
       throw new AppError('Usuário não possui cadastro no sistema');
     }
 
-    console.log(user.institution);
-
     const portfolios = await Portfolio.find({
       institution: user.institution,
     }).populate('educator', '-password');

@@ -11,6 +11,7 @@ const filesRouter = require('./files.routes');
 const classRoomRouter = require('./classroom.routes');
 const permissionRoomRouter = require('./permission.routes');
 const institutionRouter = require('./institution.routes');
+const managersRouter = require('./managers.routes');
 
 const routes = Router();
 
@@ -21,6 +22,7 @@ routes.use('/profile', profileRouter);
 
 // routes.use(acl.authorize);
 routes.use('/portfolio', portfoliosRouter);
+routes.use('/managers', managersRouter);
 routes.use('/institution', institutionRouter);
 routes.use('/observation', observationsRouter);
 routes.use('/files', filesRouter);

@@ -15,13 +15,20 @@ class ShowPortfolioService {
       throw new AppError('Erro ao encontrar o portfolio, tente novamente');
     }
 
-    const { permissions } = portfolio;
+    const { permissions, managers, educator } = portfolio;
 
     if (permissions.indexOf(checkedUser.email) > -1) {
       return portfolio;
     }
+    if (managers.indexOf(checkedUser.id) > -1) {
+      return portfolio;
+    }
+    // eslint-disable-next-line eqeqeq
+    if (checkedUser.id == educator) {
+      return portfolio;
+    }
     throw new AppError(
-      'Você não possui permissão para visualizar este Portifólio',
+      'Você não possui permissão para visualizar este Portfólio',
     );
   }
 }

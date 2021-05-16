@@ -10,7 +10,7 @@ class UpdateObservationService {
     curriculum_parameters,
     portfolio_id,
     observation_id,
-    educator_id,
+    // educator_id,
     notes,
     requestFile,
     dateDay,
@@ -24,9 +24,9 @@ class UpdateObservationService {
       throw new AppError('Erro ao Atualizar Observação');
     }
 
-    if (educator_id !== portfolio.educator.id) {
-      throw new AppError('Você não tem permissão para esta ação');
-    }
+    // if (educator_id !== portfolio.educator.id) {
+    //   throw new AppError('Você não tem permissão para esta ação');
+    // }
 
     const observation = await Observation.findByIdAndUpdate(
       observation_id,

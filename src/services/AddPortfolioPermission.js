@@ -3,7 +3,7 @@ const AppError = require('../errors/AppError');
 const EtherealMailProvider = require('../providers/MailProvider/EtherealMailProvider');
 
 class AddPortfolioPermissionService {
-  async execute({ portfolio_id, email, educator_id }) {
+  async execute({ portfolio_id, email }) {
     const portfolio = await Portfolio.findById(portfolio_id).populate(
       'educator',
       '-password',
@@ -13,9 +13,9 @@ class AddPortfolioPermissionService {
       throw new AppError('Portifolio não Encontrado');
     }
 
-    if (educator_id !== portfolio.educator.id) {
-      throw new AppError('Você não tem permissão para esta ação');
-    }
+    // if (educator_id !== portfolio.educator.id) {
+    //   throw new AppError('Você não tem permissão para esta ação');
+    // }
 
     if (portfolio.permissions.indexOf(email) < 0) {
       portfolio.permissions.push(email);

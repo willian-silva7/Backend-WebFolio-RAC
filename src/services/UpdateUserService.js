@@ -12,6 +12,7 @@ class UpdateUserService {
     }
 
     user.role = role;
+    // user.isParent = isParent;
     user.updated_at = new Date();
 
     await user.save();

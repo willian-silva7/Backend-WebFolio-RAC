@@ -8,7 +8,7 @@ const PermissionController = require('../controllers/PermissionController');
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 const ObservationController = require('../controllers/ObservationController');
 const uploadConfig = require('../config/upload');
-// const checkUserIsEducator = require('../middlewares/checkUserIsEducator');
+const checkUserIsAdmin = require('../middlewares/checkUserIsAdmin');
 
 const upload = multer(uploadConfig);
 
@@ -34,7 +34,7 @@ portfoliosRouter.post(
 
 portfoliosRouter.delete(
   '/:portfolio_id',
-  // checkUserIsEducator,
+  checkUserIsAdmin,
   PortfolioController.delete,
 );
 

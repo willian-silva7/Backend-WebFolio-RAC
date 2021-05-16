@@ -3,9 +3,9 @@ const multer = require('multer');
 const { celebrate, Segments, Joi } = require('celebrate');
 const UserController = require('../controllers/UserController');
 const UserAvatarController = require('../controllers/UserAvatarController');
-const RolesController = require('../controllers/RolesController');
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 const uploadConfig = require('../config/upload');
+const checkUserIsAdmin = require('../middlewares/checkUserIsAdmin');
 
 const usersRouter = Router();
 const upload = multer(uploadConfig);
@@ -23,11 +23,10 @@ usersRouter.post(
   UserController.create,
 );
 
-usersRouter.get('/', ensureAuthenticated, UserController.index);
+usersRouter.get('/', ensureAuthenticated, checkUserIsAdmin, UserController.index);
 
-usersRouter.get('/:id', UserController.show);
-usersRouter.put('/:user_id', ensureAuthenticated, UserController.update);
-usersRouter.put('/role/:user_id', ensureAuthenticated, RolesController.update);
+usersRouter.get('/:id', ensureAuthenticated, checkUserIsAdmin, UserController.show);
+usersRouter.put('/:user_id', ensureAuthenticated, checkUserIsAdmin, UserController.update);
 
 usersRouter.patch(
   '/avatar',
