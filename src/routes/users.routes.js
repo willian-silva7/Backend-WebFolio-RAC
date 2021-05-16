@@ -23,7 +23,9 @@ usersRouter.post(
   UserController.create,
 );
 
-usersRouter.get('/', ensureAuthenticated, checkUserIsAdmin, UserController.index);
+usersRouter.get('/',
+// ensureAuthenticated, checkUserIsAdmin,
+  UserController.index);
 
 usersRouter.get('/:id', ensureAuthenticated, checkUserIsAdmin, UserController.show);
 usersRouter.put('/:user_id', ensureAuthenticated, checkUserIsAdmin, UserController.update);
