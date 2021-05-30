@@ -1,5 +1,7 @@
 # Usar docker build
 # getting mongodb base image
+# Building Image: docker build -t mymongo .
+
 FROM ubuntu
 MAINTAINER will.oliver1994@hotmail.com
 
@@ -12,6 +14,7 @@ EXPOSE 27017
 
 CMD ["mongod"]
 
+# Building Image: docker build -t linuxize/redis .
 FROM ubuntu:18.04
 
 RUN apt-get update && \
