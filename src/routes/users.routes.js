@@ -26,7 +26,9 @@ usersRouter.post(
 usersRouter.get('/', ensureAuthenticated, checkUserIsAdmin, UserController.index);
 
 usersRouter.get('/:id', ensureAuthenticated, checkUserIsAdmin, UserController.show);
-usersRouter.put('/:user_id', ensureAuthenticated, checkUserIsAdmin, UserController.update);
+
+usersRouter.put('/:user_id', ensureAuthenticated,
+  checkUserIsAdmin, UserController.update);
 
 usersRouter.patch(
   '/avatar',
