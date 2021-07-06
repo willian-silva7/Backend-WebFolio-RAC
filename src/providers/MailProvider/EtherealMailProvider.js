@@ -3,7 +3,9 @@ const MailTemplateProvider = require('../MailTemplateProvider/HandlebarsMailTemp
 
 class EtherealMailProvider {
   async sendMail(forgottenUserData) {
-    const { to, body, forgotPasswordTemplate, subject } = forgottenUserData;
+    const {
+      to, body, forgotPasswordTemplate, subject,
+    } = forgottenUserData;
     const mailTemplateProvider = new MailTemplateProvider();
     nodemailer.createTestAccount((err, account) => {
       const smtpConfig = {
@@ -22,7 +24,7 @@ class EtherealMailProvider {
         file: forgotPasswordTemplate,
         variables: {
           name: to.name,
-          link: `https://localhost:3333/`,
+          link: 'https://localhost:3333/',
         },
       };
 
