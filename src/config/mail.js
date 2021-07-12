@@ -1,6 +1,6 @@
 module.exports = {
-  host: 'smtp-relay.sendinblue.com',
+  host: process.env.EMAIL_HOST,
   port: 587,
-  user: null,
-  pass: null,
+  user: process.env.EMAIL_USER,
+  pass: process.env.EMAIL_PASS,
 };

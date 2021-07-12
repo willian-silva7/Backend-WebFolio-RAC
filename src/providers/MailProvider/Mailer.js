@@ -1,34 +1,14 @@
 const nodemailer = require('nodemailer');
-const path = require('path');
 
-const {
-  host, pass, port, user,
-} = require('../../config/mail');
+const mailConfig = require('../../config/mail');
 
-const sendEmail = async (mailObj) => {
-  const {
-    from, to, subject, text,
-  } = mailObj;
+const transport = nodemailer.createTransport({
+  host: mailConfig.host,
+  port: mailConfig.port,
+  auth: {
+    user: mailConfig.user,
+    pass: mailConfig.pass,
+  },
+});
 
-  try {
-    const transport = nodemailer.createTransport({
-      host,
-      port,
-      auth: { user, pass },
-    });
-
-    const info = await transport.sendMail({
-      from, // sender address,
-      to, // list of receivers
-      subject, // Subject line
-      text, // plain text body
-      html: {
-        path: path.resolve(__dirname, '../template/mail.html'),
-      },
-    });
-  } catch (err) {
-
-  }
-};
-
-module.exports = sendEmail;
+module.exports = transport;
