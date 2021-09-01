@@ -1,6 +1,7 @@
 const Portfolio = require('../models/Portfolio');
 const AppError = require('../errors/AppError');
-const EtherealMailProvider = require('../providers/MailProvider/EtherealMailProvider');
+// const EtherealMailProvider = require('../providers/MailProvider/EtherealMailProvider');
+const MailerMailProvider = require('../providers/MailProvider/MailerMailProvider');
 
 class AddPortfolioPermissionService {
   async execute({ portfolio_id, email }) {
@@ -25,7 +26,9 @@ class AddPortfolioPermissionService {
       email,
     };
 
-    const mailProvider = new EtherealMailProvider();
+    // const mailProvider = new EtherealMailProvider();
+    const mailProvider = new MailerMailProvider();
+
     await mailProvider.sendMail({
       to: user,
       subject: 'Convite para permissão de usuário',

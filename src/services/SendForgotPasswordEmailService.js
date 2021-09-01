@@ -20,15 +20,6 @@ class SendForgotPasswordEmailService {
       user_id: user.id,
     });
 
-    // const forgotPasswordTemplate = path.resolve(
-    //   __dirname,
-    //   '..',
-    //   'views',
-    //   'forgot_password.hbs',
-    // );
-
-    // console.log(forgotPasswordTemplate);
-
     // const mailProvider = new EtherealMailProvider();
     const mailProvider = new MailerMailProvider();
     await mailProvider.sendMail({

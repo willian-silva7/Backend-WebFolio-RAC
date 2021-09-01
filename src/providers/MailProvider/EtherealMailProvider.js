@@ -36,6 +36,7 @@ class EtherealMailProvider {
         html: body,
       };
 
+      // eslint-disable-next-line consistent-return
       transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           return console.log(error);
